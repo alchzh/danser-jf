@@ -1,0 +1,102 @@
+{
+	"Gameplay": {
+		"HitErrorMeter": {
+			"Show": false
+		},
+		"Score": {
+			"Show": false
+		},
+		"HpBar": {
+			"Show": false
+		},
+		"ComboCounter": {
+			"Show": false
+		},
+		"PPCounter": {
+			"Show": false
+		},
+		"KeyOverlay": {
+			"Show": false
+		},
+		"ScoreBoard": {
+			"Show": false
+		},
+		"Mods": {
+			"Show": false
+		},
+		"Boundaries": {
+			"Enabled": false
+		},
+		"BorderOpacity": 1,
+		"BackgroundColor": {
+			"Hue": 0,
+			"Saturation": 1,
+			"Value": 0
+		},
+		"BackgroundOpacity": 0.5
+	},
+	"ShowResultsScreen": false,
+	"ShowWarningArrows": false,
+	"Playfield": {
+		"DrawObjects": true,
+		"DrawCursors": true,
+		"Scale": 1,
+		"OsuShift": false,
+		"ShiftY": 0,
+		"ShiftX": 0,
+		"ScaleStoryboardWithPlayfield": false,
+		"LeadInTime": 5,
+		"LeadInHold": 2,
+		"FadeOutTime": 5,
+		"SeizureWarning": {
+			"Enabled": false,
+			"Duration": 5
+		},
+		"Background": {
+			"LoadStoryboards": true,
+			"LoadVideos": false,
+			"FlashToTheBeat": false,
+			"Dim": {
+				"Intro": 0,
+				"Normal": 0.95,
+				"Breaks": 0.5
+			},
+			"Parallax": {
+				"Amount": 0,
+				"Speed": 0.5
+			},
+			"Blur": {
+				"Enabled": false,
+				"Values": {
+					"Intro": 0,
+					"Normal": 0.6,
+					"Breaks": 0.3
+				}
+			},
+			"Triangles": {
+				"Enabled": false,
+				"Shadowed": true,
+				"DrawOverBlur": true,
+				"ParallaxMultiplier": 0.5,
+				"Density": 1,
+				"Scale": 1
+			}
+		},
+		"Logo": {
+			"DrawSpectrum": false,
+			"Dim": {
+				"Intro": 1,
+				"Normal": 1,
+				"Breaks": 1
+			}
+		},
+		"Bloom": {
+			"Enabled": false,
+			"BloomToTheBeat": true,
+			"BloomBeatAddition": 0.3,
+			"Threshold": 0,
+			"Blur": 0.6,
+			"Power": 0.7
+		}
+	}
+}

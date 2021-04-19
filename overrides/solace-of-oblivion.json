@@ -1,0 +1,102 @@
+{
+	"Skin": {
+		"CurrentSkin": "outline",
+		"UseColorsFromSkin": true,
+		"UseBeatmapColors": true,
+		"Cursor": {
+			"UseSkinCursor": false
+		}
+	},
+	"Cursor": {
+		"TrailStyle": 1,
+		"Style23Speed": 0.18,
+		"Style4Shift": 0.5,
+		"Colors": {
+			"EnableRainbow": false,
+			"RainbowSpeed": 8,
+			"BaseColor": {
+				"Hue": 120,
+				"Saturation": 1,
+				"Value": 1
+			},
+			"EnableCustomHueOffset": false,
+			"HueOffset": 0,
+			"FlashToTheBeat": false,
+			"FlashAmplitude": 0
+		},
+		"EnableCustomTagColorOffset": true,
+		"TagColorOffset": -36,
+		"EnableTrailGlow": false,
+		"EnableCustomTrailGlowOffset": true,
+		"TrailGlowOffset": -36,
+		"ScaleToCS": false,
+		"CursorSize": 12,
+		"CursorExpand": false,
+		"ScaleToTheBeat": false,
+		"ShowCursorsOnBreaks": true,
+		"BounceOnEdges": false,
+		"TrailScale": 1,
+		"TrailEndScale": 0.8,
+		"TrailDensity": 0.5,
+		"TrailMaxLength": 300,
+		"TrailRemoveSpeed": 1,
+		"GlowEndScale": 0.4,
+		"InnerLengthMult": 0.9,
+		"AdditiveBlending": true,
+		"CursorRipples": false
+	},
+	"Objects": {
+		"DrawApproachCircles": false,
+		"DrawComboNumbers": false,
+		"DrawFollowPoints": false,
+		"LoadSpinners": true,
+		"ScaleToTheBeat": false,
+		"StackEnabled": false,
+		"Sliders": {
+			"ForceSliderBallTexture": false,
+			"DrawEndCircles": false,
+			"DrawSliderFollowCircle": false,
+			"DrawScorePoints": false,
+			"SliderMerge": false,
+			"SliderDistortions": true,
+			"BorderWidth": 1,
+			"Quality": {
+				"CircleLevelOfDetail": 50,
+				"PathLevelOfDetail": 50
+			},
+			"Snaking": {
+				"In": true,
+				"Out": true,
+				"DurationMultiplier": 0,
+				"FadeMultiplier": 0
+			}
+		},
+		"Colors": {
+			"Body": {
+				"UseHitCircleColor": true,
+				"Color": {
+					"EnableRainbow": false,
+					"RainbowSpeed": 8,
+					"BaseColor": {
+						"Hue": 0,
+						"Saturation": 1,
+						"Value": 0
+					},
+					"EnableCustomHueOffset": false,
+					"HueOffset": 0,
+					"FlashToTheBeat": true,
+					"FlashAmplitude": 100
+				},
+				"InnerOffset": -0.5,
+				"OuterOffset": -0.05,
+				"InnerAlpha": 0.8,
+				"OuterAlpha": 0.8
+			}
+		}
+	},
+	"Dance": {
+		"Movers": [
+			"spline"
+		]
+	}
+}
