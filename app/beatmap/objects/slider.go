@@ -66,6 +66,9 @@ type Slider struct {
 
 	startCircle *Circle
 
+	ballHitCircle *sprite.Sprite
+	ballHitCircleOverlay *sprite.Sprite
+
 	startAngle, endAngle float64
 	sliderSnakeTail      *animation.Glider
 	sliderSnakeHead      *animation.Glider
@@ -385,6 +388,9 @@ func (slider *Slider) SetDifficulty(diff *difficulty.Difficulty) {
 	slider.startCircle.SetDifficulty(diff)
 
 	slider.edges = append(slider.edges, slider.startCircle)
+
+	slider.ballHitCircle = sprite.NewSpriteSingle(skin.GetTexture("hitcircle"), 0, vector.NewVec2d(0, 0), bmath.Origin.Centre)
+	slider.ballHitCircleOverlay = sprite.NewSpriteSingle(skin.GetTexture("hitcircleoverlay"), 0, vector.NewVec2d(0, 0), bmath.Origin.Centre)
 
 	sixty := 1000.0 / 60
 	frameDelay := math.Max(150/slider.Timings.GetVelocity(slider.TPoint)*sixty, sixty)
@@ -896,8 +902,15 @@ func (slider *Slider) Draw(time float64, color color2.Color, batch *batch.QuadBa
 	batch.SetColor(1, 1, 1, 1)
 	slider.startCircle.Draw(time, color, batch)
 
-	if time >= slider.StartTime && time <= slider.EndTime {
-		slider.drawBall(time, batch, color, alpha, settings.Objects.Sliders.ForceSliderBallTexture || settings.DIVIDES < settings.Objects.Colors.MandalaTexturesTrigger)
+	if time >= slider.StartTime {
+		batch.SetSubScale(1, 1)
+		batch.SetTranslation(slider.ball.GetPosition())
+		batch.SetColor(1, 1, 1, alpha)
+		slider.ballHitCircle.SetColor(skin.GetColor(int(slider.ComboSet), int(slider.ComboSetHax), color))
+		slider.ballHitCircle.Draw(time, batch)
+		slider.ballHitCircleOverlay.Draw(time, batch)
+		batch.SetTranslation(vector.NewVec2d(0, 0))
+
 	}
 
 	if settings.DIVIDES < settings.Objects.Colors.MandalaTexturesTrigger && settings.Objects.Sliders.DrawSliderFollowCircle && slider.follower != nil {

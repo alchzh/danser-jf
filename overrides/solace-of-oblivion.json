@@ -38,7 +38,7 @@
 		"TrailScale": 1,
 		"TrailEndScale": 0.8,
 		"TrailDensity": 0.5,
-		"TrailMaxLength": 300,
+		"TrailMaxLength": 200,
 		"TrailRemoveSpeed": 1,
 		"GlowEndScale": 0.4,
 		"InnerLengthMult": 0.9,
@@ -96,7 +96,7 @@
 	},
 	"Dance": {
 		"Movers": [
-			"spline"
+			"flower"
 		]
 	}
 }

@@ -265,7 +265,7 @@ func (circle *Circle) UpdateStacking() {
 func (circle *Circle) Draw(time float64, color color2.Color, batch *batch.QuadBatch) bool {
 	position := circle.GetStackedPositionAtMod(time, circle.diff.Mods)
 
-	batch.SetSubScale(1, 1)
+	batch.SetSubScale( 1, 1)
 	batch.SetTranslation(position.Copy64())
 
 	alpha := float64(color.A)
