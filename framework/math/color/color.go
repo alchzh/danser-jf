@@ -128,7 +128,7 @@ func (c Color) Lighten2(amount float32) Color {
 }
 
 func (c Color) DarkenHSLuv(amount float32) Color {
-	scale := float64(math32.Min(0, 1.0-amount))
+	scale := float64(math32.Max(0, 1.0-amount))
 	h, s, l := RGBToHSLuv(c.R, c.G, c.B)
 
 	return NewHSLuvA(
@@ -145,7 +145,7 @@ func (c Color) LightenHSLuv(amount float32) Color {
 		h,
 		s,
 		// Adjustment taken from http://colorspace.r-forge.r-project.org/reference/lighten.html
-		100 - (100 - l) * float64(1 - amount),
+		100 - ((100 - l) * float64(1 - amount)),
 		c.A)
 }
 
