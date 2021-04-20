@@ -98,6 +98,14 @@ func (c Color) Shade2(amount float32) Color {
 	return c.Lighten2(amount)
 }
 
+func (c Color) ShadeHSLuv(amount float32) Color {
+	if amount < 0 {
+		return c.DarkenHSLuv(-amount)
+	}
+
+	return c.LightenHSLuv(amount)
+}
+
 func (c Color) Darken(amount float32) Color {
 	scale := math32.Max(1.0, 1.0+amount)
 	return NewRGBA(c.R/scale, c.G/scale, c.B/scale, c.A)
@@ -116,6 +124,28 @@ func (c Color) Lighten2(amount float32) Color {
 		math32.Min(1.0, c.R*scale+amount),
 		math32.Min(1.0, c.G*scale+amount),
 		math32.Min(1.0, c.B*scale+amount),
+		c.A)
+}
+
+func (c Color) DarkenHSLuv(amount float32) Color {
+	scale := float64(math32.Min(0, 1.0-amount))
+	h, s, l := RGBToHSLuv(c.R, c.G, c.B)
+
+	return NewHSLuvA(
+		h,
+		s,
+		l*scale,
+		c.A)
+}
+
+func (c Color) LightenHSLuv(amount float32) Color {
+	h, s, l := RGBToHSLuv(c.R, c.G, c.B)
+
+	return NewHSLuvA(
+		h,
+		s,
+		// Adjustment taken from http://colorspace.r-forge.r-project.org/reference/lighten.html
+		100 - (100 - l) * float64(1 - amount),
 		c.A)
 }
 
