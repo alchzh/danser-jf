@@ -1,0 +1,16 @@
+{
+	"Dance": {
+		"Momentum": {
+			"SkipStackAngles": false,
+			"StreamRestrict": false,
+			"DurationMult": 2,
+			"DurationTrigger": 500,
+			"StreamMult": 0.8,
+			"RestrictAngle": 90,
+			"RestrictArea": 0,
+			"RestrictInvert": false,
+			"DistanceMult": 0.6,
+			"DistanceMultOut": 0.4
+		}
+	}
+}

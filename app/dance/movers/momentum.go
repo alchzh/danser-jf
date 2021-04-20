@@ -74,7 +74,10 @@ func (bm *MomentumMover) SetObjects(objs []objects.IHitObject) int {
 	endPos := end.GetStackedEndPositionMod(bm.mods)
 	startPos := start.GetStackedStartPositionMod(bm.mods)
 
+	ms := settings.Dance.Momentum
+
 	dst := endPos.Dst(startPos)
+	mult := ms.DistanceMult
 
 	var a2 float32
 	fromLong := false
@@ -90,7 +93,18 @@ func (bm *MomentumMover) SetObjects(objs []objects.IHitObject) int {
 			break
 		}
 		if !same(bm.mods, o, objs[i+1]) {
-			a2 = o.GetStackedStartPositionMod(bm.mods).AngleRV(objs[i+1].GetStackedStartPositionMod(bm.mods))
+			o2 := objs[i+1]
+			if s2, ok := o2.(objects.ILongObject); ok {
+				pos := o.GetStackedStartPositionMod(bm.mods)
+				pos2 := o2.GetStackedStartPositionMod(bm.mods)
+				s2a := s2.GetStartAngleMod(bm.mods)
+				dst2 := pos.Dst(pos2)
+				pos2 = vector.NewVec2fRad(s2a, dst2 * float32(mult)).Add(pos2)
+
+				a2 = pos.AngleRV(pos2)
+			} else {
+				a2 = o.GetStackedStartPositionMod(bm.mods).AngleRV(o2.GetStackedStartPositionMod(bm.mods))
+			}
 			break
 		}
 	}
@@ -102,7 +116,6 @@ func (bm *MomentumMover) SetObjects(objs []objects.IHitObject) int {
 		sq2 = startPos.DstSq(nextPos)
 	}
 
-	ms := settings.Dance.Momentum
 
 	// stream detection logic stolen from spline mover
 	stream := false
@@ -127,8 +140,6 @@ func (bm *MomentumMover) SetObjects(objs []objects.IHitObject) int {
 	}
 
 
-	mult := ms.DistanceMultOut
-
 	ac := a2 - startPos.AngleRV(endPos)
 	area := float32(ms.RestrictArea * math.Pi / 180.0)
 
@@ -152,12 +163,11 @@ func (bm *MomentumMover) SetObjects(objs []objects.IHitObject) int {
 		} else {
 			a2 = a - offset
 		}
-
-		mult = ms.DistanceMult
 	} else if next != nil && !fromLong {
 		r := sq1 / (sq1 + sq2)
 		a := endPos.AngleRV(startPos)
 		a2 = a + r * anorm2(a2 - a)
+		mult = ms.DistanceMultOut
 	}
 
 	endTime := end.GetEndTime()
