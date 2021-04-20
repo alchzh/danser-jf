@@ -89,10 +89,7 @@ func RGBToHSV(r, g, b float32) (h, s, v float32) {
 
 func HSLuvToRGB(h, s, l float64) (r, g, b float32) {
 	_r, _g, _b := hsluv.HsluvToRGB(h, s, l)
-	r = float32(_r)
-	g = float32(_g)
-	b = float32(_b)
-	return
+	return float32(_r), float32(_g), float32(_b)
 }
 
 func RGBToHSLuv(r, g, b float32) (h, s, l float64) {
