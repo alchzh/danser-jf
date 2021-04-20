@@ -1,6 +1,7 @@
 package color
 
 import (
+	"github.com/hsluv/hsluv-go"
 	"github.com/wieku/danser-go/app/bmath"
 	"github.com/wieku/danser-go/framework/math/math32"
 )
@@ -85,3 +86,18 @@ func RGBToHSV(r, g, b float32) (h, s, v float32) {
 
 	return
 }
+
+func HSLuvToRGB(h, s, l float64) (r, g, b float32) {
+	_r, _g, _b := hsluv.HsluvToRGB(h, s, l)
+	r = float32(_r)
+	g = float32(_g)
+	b = float32(_b)
+	return
+}
+
+func RGBToHSLuv(r, g, b float32) (h, s, l float64) {
+	h, s, l = hsluv.HsluvFromRGB(float64(r), float64(g), float64(b))
+	return
+}
+
+

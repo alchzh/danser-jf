@@ -44,6 +44,15 @@ func NewHSV(h, s, v float32) Color {
 	return NewHSVA(h, s, v, 1.0)
 }
 
+func NewHSLuvA(h, s, l float64, a float32) Color {
+	r, g, b := HSLuvToRGB(h, s, l)
+	return NewRGBA(r, g, b, a)
+}
+
+func NewHSLuv(h, s, l float64) Color {
+	return NewHSLuvA(h, s, l, 1.0)
+}
+
 func (c Color) GetHue() float32 {
 	h1, _, _ := RGBToHSV(c.R, c.G, c.B)
 	return h1
