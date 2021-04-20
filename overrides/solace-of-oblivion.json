@@ -15,9 +15,9 @@
 			"EnableRainbow": false,
 			"RainbowSpeed": 8,
 			"BaseColor": {
-				"Hue": 120,
-				"Saturation": 1,
-				"Value": 1
+				"Hue": 130,
+				"Saturation": 0.97,
+				"Value": 0.95
 			},
 			"EnableCustomHueOffset": false,
 			"HueOffset": 0,
@@ -30,15 +30,15 @@
 		"EnableCustomTrailGlowOffset": true,
 		"TrailGlowOffset": -36,
 		"ScaleToCS": false,
-		"CursorSize": 12,
-		"CursorExpand": false,
+		"CursorSize": 11,
+		"CursorExpand": true,
 		"ScaleToTheBeat": false,
 		"ShowCursorsOnBreaks": true,
 		"BounceOnEdges": false,
 		"TrailScale": 1,
-		"TrailEndScale": 0.8,
+		"TrailEndScale": 0.7,
 		"TrailDensity": 0.5,
-		"TrailMaxLength": 200,
+		"TrailMaxLength": 250,
 		"TrailRemoveSpeed": 1,
 		"GlowEndScale": 0.4,
 		"InnerLengthMult": 0.9,
@@ -89,14 +89,14 @@
 				},
 				"InnerOffset": -0.5,
 				"OuterOffset": -0.05,
-				"InnerAlpha": 0.8,
+				"InnerAlpha": 0.4,
 				"OuterAlpha": 0.8
 			}
 		}
 	},
 	"Dance": {
 		"Movers": [
-			"flower"
+			"momentum"
 		]
 	}
 }

@@ -279,7 +279,7 @@ func (circle *Circle) Draw(time float64, color color2.Color, batch *batch.QuadBa
 
 	batch.SetColor(1, 1, 1, alpha)
 
-	circle.hitCircle.SetColor(skin.GetColor(int(circle.ComboSet), int(circle.ComboSetHax), color))
+	circle.hitCircle.SetColor(skin.GetColor(int(circle.ComboSet), int(circle.ComboSetHax), color).Shade2(0.1))
 
 	circle.hitCircle.Draw(time, batch)
 

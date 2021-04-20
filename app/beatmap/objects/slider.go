@@ -811,8 +811,8 @@ func (slider *Slider) DrawBody(_ float64, bodyColor, innerBorder, outerBorder co
 			baseTrack = skin.GetColor(int(slider.ComboSet), int(slider.ComboSetHax), baseTrack)
 		}
 
-		bodyOuter = baseTrack.Shade2(-0.1)
-		bodyInner = baseTrack.Shade2(0.5)
+		bodyOuter = baseTrack.Shade2(-0.2)
+		bodyInner = baseTrack.Shade2(0.3)
 	} else {
 		if settings.Objects.Colors.UseComboColors {
 			cHSV := settings.Objects.Colors.ComboColors[int(slider.ComboSet)%len(settings.Objects.Colors.ComboColors)]
@@ -906,7 +906,7 @@ func (slider *Slider) Draw(time float64, color color2.Color, batch *batch.QuadBa
 		batch.SetSubScale(1, 1)
 		batch.SetTranslation(slider.ball.GetPosition())
 		batch.SetColor(1, 1, 1, alpha)
-		slider.ballHitCircle.SetColor(skin.GetColor(int(slider.ComboSet), int(slider.ComboSetHax), color))
+		slider.ballHitCircle.SetColor(skin.GetColor(int(slider.ComboSet), int(slider.ComboSetHax), color).Shade2(0.1))
 		slider.ballHitCircle.Draw(time, batch)
 		slider.ballHitCircleOverlay.Draw(time, batch)
 		batch.SetTranslation(vector.NewVec2d(0, 0))
